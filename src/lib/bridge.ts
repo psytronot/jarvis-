@@ -1,4 +1,7 @@
-import type { AskHandlers } from './anthropic'
+export type AskHandlers = {
+  onText: (delta: string) => void
+  onTool: (name: string) => void
+}
 import type { Blade, Panel } from '../store'
 import { BRIDGE_WS_URL } from '../config'
 
