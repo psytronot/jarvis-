@@ -220,7 +220,7 @@ async function streamResponse(socket, state, input, askId) {
 const server = http.createServer((req, res) => {
   if (req.url === '/health') {
     res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' })
-    return res.end(JSON.stringify({ ok: true, provider: 'openai', model: MODEL, tts: Boolean(process.env.ELEVENLABS_API_KEY), stt: Boolean(process.env.ELEVENLABS_API_KEY) }))
+    return res.end(JSON.stringify({ ok: true, provider: 'openai', model: MODEL, tts: false, stt: false }))
   }
   res.writeHead(404); res.end()
 })
