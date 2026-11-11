@@ -21,7 +21,7 @@ Create `.env.local` in the project root:
 
 ```dotenv
 OPENAI_API_KEY=your_openai_api_key
-OPENAI_MODEL=gpt-5.4
+OPENAI_MODEL=gpt-6-astra
 ```
 
 Then run:
@@ -69,7 +69,7 @@ The OpenAI bridge currently exposes web search, the JARVIS display, and interfac
 | Variable | Default | Purpose |
 |---|---|---|
 | `OPENAI_API_KEY` | required | Server-side OpenAI API key. Never prefix with `VITE_`. |
-| `OPENAI_MODEL` | `gpt-5.4` | OpenAI model used by the bridge. |
+| `OPENAI_MODEL` | `gpt-6-astra` | OpenAI model used by the bridge. |
 | `JARVIS_BRIDGE_PORT` | `8787` | Bridge HTTP/WebSocket port. |
 | `JARVIS_BRIDGE_HOST` | `127.0.0.1` | Bind address; keep loopback for local use. |
 | `JARVIS_ALLOWED_ORIGINS` | local dev origins | Additional trusted browser origins. |
