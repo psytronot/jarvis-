@@ -2,7 +2,7 @@
   "name": "jarvis",
   "private": true,
   "version": "0.0.0",
-  "description": "A browser voice assistant with an Iron Man holographic interface, driven by Claude Code through a small Node bridge.",
+  "description": "A browser voice assistant with an Iron Man holographic interface, powered by the OpenAI Responses API.",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -15,8 +15,8 @@
     "lint": "oxlint",
     "test": "node --test",
     "preview": "vite preview",
-    "bridge": "node bridge/server.mjs",
-    "bridge:writes": "node bridge/server.mjs --writes",
+    "bridge": "node bridge/openai-server.mjs",
+    "bridge:writes": "node bridge/openai-server.mjs --writes",
     "setup": "node scripts/setup.mjs"
   },
   "dependencies": {
@@ -26,7 +26,7 @@
     "@picovoice/porcupine-web": "^4.0.1",
     "@picovoice/web-voice-processor": "^4.0.10",
     "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.7.0",
+    "@react-three/fiber": "^9.7.7",
     "@react-three/postprocessing": "^3.0.4",
     "dompurify": "^3.4.12",
     "framer-motion": "^12.43.0",
