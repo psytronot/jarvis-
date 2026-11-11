@@ -8,7 +8,7 @@ import { BRIDGE_WS_URL } from '../config'
 /**
  * Client for the local bridge (see bridge/openai-server.mjs).
  *
- * Same `ask()` shape as the browser-direct path, so App.tsx doesn't care which
+ * Same `ask()` shape as the browser-only path, so App.tsx doesn't care which
  * brain is behind it. The difference is what's reachable: this one runs on your
  * machine, so every MCP server in your OpenAI bridge config is in play.
  *
