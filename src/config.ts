@@ -58,12 +58,7 @@ function flag(name: string, raw: unknown, fallback: boolean): boolean {
  *              deploys as a static site, but it needs VITE_ANTHROPIC_API_KEY in
  *              the bundle and only reaches remote HTTP MCP servers.
  */
-export const BACKEND: 'bridge' | 'direct' = choice(
-  'VITE_BACKEND',
-  import.meta.env.VITE_BACKEND,
-  ['bridge', 'direct'] as const,
-  'bridge',
-)
+export const BACKEND: 'bridge' = 'bridge'
 
 /**
  * Where the bridge lives. Derived once here rather than in each of the three
