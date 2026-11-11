@@ -16,7 +16,6 @@
     "test": "node --test",
     "preview": "vite preview",
     "bridge": "node bridge/openai-server.mjs",
-    "bridge:writes": "node bridge/openai-server.mjs --writes",
     "setup": "node scripts/setup.mjs"
   },
   "dependencies": {
