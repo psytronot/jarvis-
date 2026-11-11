@@ -14,9 +14,9 @@ import { resolve } from 'node:path'
 // Load server-only secrets from .env.local for the one-command local workflow.
 try {
   const envText = readFileSync(resolve(process.cwd(), '.env.local'), 'utf8')
-  for (const line of envText.split(/\\r?\\n/)) {
-    const match = line.match(/^\\s*(OPENAI_API_KEY|OPENAI_MODEL)\\s*=\\s*(.*?)\\s*$/)
-    if (match && !process.env[match[1]]) process.env[match[1]] = match[2].replace(/^['\"]|['\"]$/g, '')
+  for (const line of envText.split(/\r?\n/)) {
+    const match = line.match(/^\s*(OPENAI_API_KEY|OPENAI_MODEL)\s*=\s*(.*?)\s*$/)
+    if (match && !process.env[match[1]]) process.env[match[1]] = match[2].replace(/^['"]|['"]$/g, '')
   }
 } catch { /* shell environment may provide the credentials instead */ }
 
