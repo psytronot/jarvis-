@@ -4,17 +4,17 @@ import { BACKEND, BRIDGE_HTTP_URL, env } from '../config'
  * What speech engines are actually available, decided once at boot.
  *
  * The whole point is that the app runs for anyone. A student who has done
- * nothing but install Claude Code and log in gets the browser's own speech
+ * nothing but install OpenAI bridge and log in gets the browser's own speech
  * recognition and voice — no keys, no accounts, it just works. A student who
- * also has an ElevenLabs key (in their Claude Code config or a .env) gets Scribe
+ * also has an ElevenLabs key (in their OpenAI bridge config or a .env) gets Scribe
  * transcription and the ElevenLabs voice instead, automatically, with no flag to
  * set. This module is how the rest of the app learns which of those two worlds
  * it is in, so voice.ts and tts.ts never have to guess.
  *
  * The premium paths both live behind the bridge — it holds the key and makes
- * the calls, so the browser never sees a secret. In direct mode (no bridge)
+ * the calls, so the browser never sees a secret. In browser-only mode (no bridge)
  * only a key baked into the bundle could reach ElevenLabs for speech, and that
- * is not a path worth encouraging, so direct mode is treated as browser-only.
+ * is not a path worth encouraging, so browser-only mode is treated as browser-only.
  */
 
 export type Capabilities = {
@@ -72,7 +72,7 @@ export function engineLabel(): string {
   const c = current
   if (c.stt && c.tts) return 'ElevenLabs'
   if (c.tts) return 'ElevenLabs voice'
-  // env.elevenKey is only meaningful in direct mode; harmless to mention.
+  // env.elevenKey is only meaningful in browser-only mode; harmless to mention.
   if (env.elevenKey && BACKEND !== 'bridge') return 'ElevenLabs (direct)'
   return 'browser speech'
 }
