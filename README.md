@@ -2,7 +2,7 @@
 
 A browser voice assistant with an Iron Man holographic interface. The React, Vite and Three.js interface remains the face and voice; a local Node bridge securely calls the **OpenAI Responses API** as the reasoning engine.
 
-**JARVIS uses OpenAI, not Claude.** No Claude Code installation or Claude login is required. The OpenAI API key stays in the bridge process and is never exposed through a `VITE_*` browser variable.
+**JARVIS uses OpenAI GPT-6 Astra, not Claude.** No Claude Code installation or Claude login is required. The OpenAI API key stays in the bridge process and is never exposed through a `VITE_*` browser variable. The API is billed separately from a ChatGPT subscription; a ChatGPT plan does not automatically pay for API calls. Check the API billing page before enabling usage.
 
 ## Requirements
 
