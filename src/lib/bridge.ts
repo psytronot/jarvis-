@@ -1,13 +1,16 @@
-import type { AskHandlers } from './anthropic'
+export type AskHandlers = {
+  onText: (delta: string) => void
+  onTool: (name: string) => void
+}
 import type { Blade, Panel } from '../store'
 import { BRIDGE_WS_URL } from '../config'
 
 /**
- * Client for the local bridge (see bridge/server.mjs).
+ * Client for the local bridge (see bridge/openai-server.mjs).
  *
- * Same `ask()` shape as the browser-direct path, so App.tsx doesn't care which
+ * Same `ask()` shape as the browser-only path, so App.tsx doesn't care which
  * brain is behind it. The difference is what's reachable: this one runs on your
- * machine, so every MCP server in your Claude Code config is in play.
+ * machine, so every MCP server in your OpenAI bridge config is in play.
  *
  * The socket is the session. The bridge holds one Claude Agent SDK query per
  * connection and the whole conversation lives inside it, so a dropped socket
@@ -104,7 +107,7 @@ export function watchUi(fn: (op: string, args: any) => void) {
  * Connection state, for the UI.
  *
  *   'open'        — first connection of the page.
- *   'lost'        — the socket died. The agent session died with it, so
+ *   'lost'        — the socket died. The OpenAI conversation session died with it, so
  *                   everything said so far is gone as far as JARVIS knows.
  *   'reconnected' — we're back, on a fresh session with no memory of the above.
  */
@@ -169,7 +172,7 @@ function dispatch(ws: WebSocket) {
     }
 
     if (msg.type === 'ready') {
-      // The bridge announces immediately on connect from Claude Code's config,
+      // The bridge announces immediately on connect from OpenAI bridge configuration,
       // then again with live status once the agent initialises. Keep listening
       // so the later, more accurate list wins.
       servers = (msg.servers ?? [])
