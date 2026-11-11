@@ -137,7 +137,7 @@ export const env = {
 
 /** `claude-opus-5` is the strongest model; `claude-sonnet-5` trades a little
  *  quality for lower latency if you find responses feel slow on camera. */
-export const MODEL = 'gpt-5.4'
+export const MODEL = 'gpt-6-astra'
 
 /**
  * Fast mode runs the same Opus 5 at up to 2.5x output speed. It is a research
