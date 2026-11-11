@@ -129,7 +129,6 @@ export const KOKORO_VOICE = choice(
 )
 
 export const env = {
-  anthropicKey: str(import.meta.env.VITE_ANTHROPIC_API_KEY) ?? '',
   elevenKey: str(import.meta.env.VITE_ELEVENLABS_API_KEY) ?? '',
   elevenVoiceId:
     str(import.meta.env.VITE_ELEVENLABS_VOICE_ID) ?? 'JBFqnCBsd6RMkjVDRZzb',
@@ -138,7 +137,7 @@ export const env = {
 
 /** `claude-opus-5` is the strongest model; `claude-sonnet-5` trades a little
  *  quality for lower latency if you find responses feel slow on camera. */
-export const MODEL = 'claude-opus-5'
+export const MODEL = 'gpt-5.4'
 
 /**
  * Fast mode runs the same Opus 5 at up to 2.5x output speed. It is a research
